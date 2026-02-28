@@ -3,46 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Professional Website</title>
+<title>Brand Collab</title>
 
 <style>
-body {
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f6f9;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #f5f7fa;
 }
 
 header {
-    background: #1e293b;
-    padding: 15px 0;
+    background: #0f172a;
+    padding: 15px 50px;
 }
 
 nav {
-    width: 90%;
-    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-nav h2 {
+.logo {
     color: white;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
-}
-
-nav ul li {
-    display: inline;
+    gap: 25px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
     cursor: pointer;
 }
 
@@ -50,17 +51,10 @@ nav ul li a:hover {
     color: #38bdf8;
 }
 
-.container {
-    width: 90%;
-    margin: 40px auto;
-}
-
 .page {
     display: none;
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 60px 10%;
+    min-height: 80vh;
 }
 
 .active {
@@ -68,38 +62,59 @@ nav ul li a:hover {
 }
 
 h1 {
-    margin-top: 0;
-    color: #1e293b;
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    max-width: 500px;
 }
 
 input, textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-top: 10px;
     margin-bottom: 15px;
-    border-radius: 5px;
+    border-radius: 6px;
     border: 1px solid #ccc;
 }
 
 button {
-    padding: 10px 20px;
-    background: #1e293b;
+    padding: 12px;
+    width: 100%;
+    background: #0f172a;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
+    font-size: 15px;
 }
 
 button:hover {
-    background: #334155;
+    background: #1e293b;
+}
+
+.hero {
+    background: linear-gradient(to right, #0f172a, #1e293b);
+    color: white;
+    padding: 80px 10%;
+    text-align: center;
 }
 
 footer {
+    background: #0f172a;
+    color: white;
     text-align: center;
     padding: 15px;
-    background: #1e293b;
-    color: white;
-    margin-top: 40px;
 }
 </style>
 </head>
@@ -107,64 +122,74 @@ footer {
 <body>
 
 <header>
-    <nav>
-        <h2>MyWebsite</h2>
-        <ul>
-            <li><a onclick="showPage('home')">Home</a></li>
-            <li><a onclick="showPage('about')">About</a></li>
-            <li><a onclick="showPage('login')">Login</a></li>
-            <li><a onclick="showPage('register')">Register</a></li>
-            <li><a onclick="showPage('contact')">Contact</a></li>
-        </ul>
-    </nav>
+<nav>
+<div class="logo">Brand Collab</div>
+<ul>
+<li><a onclick="showPage('home')">Home</a></li>
+<li><a onclick="showPage('about')">About</a></li>
+<li><a onclick="showPage('login')">Login</a></li>
+<li><a onclick="showPage('register')">Register</a></li>
+<li><a onclick="showPage('contact')">Contact</a></li>
+</ul>
+</nav>
 </header>
 
-<div class="container">
-
-    <div id="home" class="page active">
-        <h1>Welcome to Our Website</h1>
-        <p>This is a clean and professional website template built using HTML, CSS, and JavaScript in a single file.</p>
-    </div>
-
-    <div id="about" class="page">
-        <h1>About Us</h1>
-        <p>We are dedicated to providing high-quality digital solutions. Our website is designed with a modern, neat, and professional look.</p>
-    </div>
-
-    <div id="login" class="page">
-        <h1>Login</h1>
-        <form onsubmit="return loginUser()">
-            <input type="email" id="loginEmail" placeholder="Enter Email" required>
-            <input type="password" id="loginPassword" placeholder="Enter Password" required>
-            <button type="submit">Login</button>
-        </form>
-    </div>
-
-    <div id="register" class="page">
-        <h1>Register</h1>
-        <form onsubmit="return registerUser()">
-            <input type="text" id="regName" placeholder="Full Name" required>
-            <input type="email" id="regEmail" placeholder="Email Address" required>
-            <input type="password" id="regPassword" placeholder="Create Password" required>
-            <button type="submit">Register</button>
-        </form>
-    </div>
-
-    <div id="contact" class="page">
-        <h1>Contact Us</h1>
-        <p><strong>Phone:</strong> 9172660105</p>
-        <form onsubmit="return sendMessage()">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea rows="4" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </div>
-
+<!-- HOME -->
+<section id="home" class="page active">
+<div class="hero">
+<h1>Welcome to Brand Collab</h1>
+<p>Connecting Creators with Brands for Powerful Collaborations.</p>
 </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="page">
+<h1>About Us</h1>
+<p>Brand Collab is a professional platform that connects influencers and brands for meaningful partnerships.</p>
+<p>We help creators monetize their audience and brands reach the right customers through strategic collaborations.</p>
+</section>
+
+<!-- LOGIN -->
+<section id="login" class="page">
+<div class="card">
+<h1>Login</h1>
+<form onsubmit="return loginUser()">
+<input type="email" placeholder="Enter Email" required>
+<input type="password" placeholder="Enter Password" required>
+<button type="submit">Login</button>
+</form>
+</div>
+</section>
+
+<!-- REGISTER -->
+<section id="register" class="page">
+<div class="card">
+<h1>Register</h1>
+<form onsubmit="return registerUser()">
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email Address" required>
+<input type="password" placeholder="Create Password" required>
+<button type="submit">Register</button>
+</form>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="page">
+<div class="card">
+<h1>Contact Us</h1>
+<p><strong>Phone:</strong> 9172660105</p>
+<form onsubmit="return sendMessage()">
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea rows="4" placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+</div>
+</section>
 
 <footer>
-    © 2026 MyWebsite | All Rights Reserved
+© 2026 Brand Collab | All Rights Reserved
 </footer>
 
 <script>
@@ -172,6 +197,7 @@ function showPage(pageId) {
     let pages = document.querySelectorAll(".page");
     pages.forEach(page => page.classList.remove("active"));
     document.getElementById(pageId).classList.add("active");
+    window.scrollTo(0,0);
 }
 
 function loginUser() {
@@ -192,3 +218,5 @@ function sendMessage() {
 
 </body>
 </html>
+
+            
