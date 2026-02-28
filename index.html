@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Website</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+
+header {
+    background: #1e293b;
+    padding: 15px 0;
+}
+
+nav {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h2 {
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+nav ul li a:hover {
+    color: #38bdf8;
+}
+
+.container {
+    width: 90%;
+    margin: 40px auto;
+}
+
+.page {
+    display: none;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.active {
+    display: block;
+}
+
+h1 {
+    margin-top: 0;
+    color: #1e293b;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    background: #1e293b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #334155;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #1e293b;
+    color: white;
+    margin-top: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <h2>MyWebsite</h2>
+        <ul>
+            <li><a onclick="showPage('home')">Home</a></li>
+            <li><a onclick="showPage('about')">About</a></li>
+            <li><a onclick="showPage('login')">Login</a></li>
+            <li><a onclick="showPage('register')">Register</a></li>
+            <li><a onclick="showPage('contact')">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+
+    <div id="home" class="page active">
+        <h1>Welcome to Our Website</h1>
+        <p>This is a clean and professional website template built using HTML, CSS, and JavaScript in a single file.</p>
+    </div>
+
+    <div id="about" class="page">
+        <h1>About Us</h1>
+        <p>We are dedicated to providing high-quality digital solutions. Our website is designed with a modern, neat, and professional look.</p>
+    </div>
+
+    <div id="login" class="page">
+        <h1>Login</h1>
+        <form onsubmit="return loginUser()">
+            <input type="email" id="loginEmail" placeholder="Enter Email" required>
+            <input type="password" id="loginPassword" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div id="register" class="page">
+        <h1>Register</h1>
+        <form onsubmit="return registerUser()">
+            <input type="text" id="regName" placeholder="Full Name" required>
+            <input type="email" id="regEmail" placeholder="Email Address" required>
+            <input type="password" id="regPassword" placeholder="Create Password" required>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <div id="contact" class="page">
+        <h1>Contact Us</h1>
+        <p><strong>Phone:</strong> 9172660105</p>
+        <form onsubmit="return sendMessage()">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 MyWebsite | All Rights Reserved
+</footer>
+
+<script>
+function showPage(pageId) {
+    let pages = document.querySelectorAll(".page");
+    pages.forEach(page => page.classList.remove("active"));
+    document.getElementById(pageId).classList.add("active");
+}
+
+function loginUser() {
+    alert("Login Successful!");
+    return false;
+}
+
+function registerUser() {
+    alert("Registration Successful!");
+    return false;
+}
+
+function sendMessage() {
+    alert("Message Sent Successfully!");
+    return false;
+}
+</script>
+
+</body>
+</html>
