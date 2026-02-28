@@ -1,120 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brand Collab</title>
+<title>Brands Collaboration</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
 }
 
-body {
-    background: #f5f7fa;
+/* Header */
+header{
+    background:#111;
+    color:white;
+    padding:10px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-header {
-    background: #0f172a;
-    padding: 15px 50px;
+.logo{
+    display:flex;
+    align-items:center;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.logo img{
+    height:40px;
+    margin-right:10px;
 }
 
-.logo {
-    color: white;
-    font-size: 22px;
-    font-weight: bold;
+.menu-btn{
+    font-size:25px;
+    cursor:pointer;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
+/* Sidebar */
+.sidebar{
+    position:fixed;
+    left:-250px;
+    top:0;
+    width:250px;
+    height:100%;
+    background:#222;
+    padding-top:60px;
+    transition:0.3s;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    cursor: pointer;
+.sidebar a{
+    display:block;
+    padding:15px;
+    color:white;
+    text-decoration:none;
 }
 
-nav ul li a:hover {
-    color: #38bdf8;
+.sidebar a:hover{
+    background:#444;
 }
 
-.page {
-    display: none;
-    padding: 60px 10%;
-    min-height: 80vh;
+.show{
+    left:0;
 }
 
-.active {
-    display: block;
+/* Pages */
+.page{
+    display:none;
+    padding:40px;
 }
 
-h1 {
-    margin-bottom: 20px;
-    color: #0f172a;
+.active{
+    display:block;
 }
 
-p {
-    margin-bottom: 15px;
-    line-height: 1.6;
+/* Buttons */
+button{
+    padding:10px 20px;
+    margin:5px;
+    border:none;
+    background:#e60000;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
 }
 
-.card {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    max-width: 500px;
+button:hover{
+    background:#b30000;
 }
 
-input, textarea {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
 }
 
-button {
-    padding: 12px;
-    width: 100%;
-    background: #0f172a;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 15px;
-}
-
-button:hover {
-    background: #1e293b;
-}
-
-.hero {
-    background: linear-gradient(to right, #0f172a, #1e293b);
-    color: white;
-    padding: 80px 10%;
-    text-align: center;
-}
-
-footer {
-    background: #0f172a;
-    color: white;
-    text-align: center;
-    padding: 15px;
+/* Home Content */
+.home-box{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 </style>
 </head>
@@ -122,101 +108,122 @@ footer {
 <body>
 
 <header>
-<nav>
-<div class="logo">Brand Collab</div>
-<ul>
-<li><a onclick="showPage('home')">Home</a></li>
-<li><a onclick="showPage('about')">About</a></li>
-<li><a onclick="showPage('login')">Login</a></li>
-<li><a onclick="showPage('register')">Register</a></li>
-<li><a onclick="showPage('contact')">Contact</a></li>
-</ul>
-</nav>
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+        <h2>Brands Collaboration</h2>
+    </div>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
 </header>
 
-<!-- HOME -->
-<section id="home" class="page active">
-<div class="hero">
-<h1>Welcome to Brand Collab</h1>
-<p>Connecting Creators with Brands for Powerful Collaborations.</p>
+<div class="sidebar" id="sidebar">
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('about')">About</a>
+    <a href="#" onclick="showPage('contact')">Contact Us</a>
+    <a href="#" onclick="showPage('login')">Login</a>
+    <a href="#" onclick="showPage('register')">Register</a>
 </div>
-</section>
 
-<!-- ABOUT -->
-<section id="about" class="page">
-<h1>About Us</h1>
-<p>Brand Collab is a professional platform that connects influencers and brands for meaningful partnerships.</p>
-<p>We help creators monetize their audience and brands reach the right customers through strategic collaborations.</p>
-</section>
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+    <div class="home-box">
+        <h1>Welcome to Brands Collaboration</h1>
+        <p>We connect creators and brands for powerful collaborations and marketing partnerships.</p>
 
-<!-- LOGIN -->
-<section id="login" class="page">
-<div class="card">
-<h1>Login</h1>
-<form onsubmit="return loginUser()">
-<input type="email" placeholder="Enter Email" required>
-<input type="password" placeholder="Enter Password" required>
-<button type="submit">Login</button>
-</form>
+        <div id="authButtons">
+            <button onclick="showPage('login')">Login</button>
+            <button onclick="showPage('register')">Register</button>
+        </div>
+
+        <div id="afterLogin" style="display:none;">
+            <button>Add Brand</button>
+            <p>You are successfully logged in. Now you can add and manage brand collaborations.</p>
+        </div>
+
+        <hr>
+
+        <h3>About Us (Short Info)</h3>
+        <p>Brands Collaboration is a professional platform where businesses and creators meet for marketing growth.</p>
+
+        <h3>Contact Preview</h3>
+        <p>Email: surajv707@gmail.com</p>
+    </div>
 </div>
-</section>
 
-<!-- REGISTER -->
-<section id="register" class="page">
-<div class="card">
-<h1>Register</h1>
-<form onsubmit="return registerUser()">
-<input type="text" placeholder="Full Name" required>
-<input type="email" placeholder="Email Address" required>
-<input type="password" placeholder="Create Password" required>
-<button type="submit">Register</button>
-</form>
+<!-- ABOUT PAGE -->
+<div id="about" class="page">
+    <h1>About Us</h1>
+    <p>
+    Brands Collaboration is a professional digital platform built to connect brands,
+    startups, influencers, and content creators for mutual growth. 
+    Our mission is to simplify brand partnerships and marketing campaigns.
+    </p>
+
+    <h3>Our Vision</h3>
+    <p>
+    We aim to become India's most trusted collaboration platform where brands
+    find real influencers and creators grow with real opportunities.
+    </p>
+
+    <h3>Why Choose Us?</h3>
+    <ul>
+        <li>Professional collaboration support</li>
+        <li>Secure login & registration</li>
+        <li>Fast brand connections</li>
+        <li>Marketing growth strategies</li>
+    </ul>
 </div>
-</section>
 
-<!-- CONTACT -->
-<section id="contact" class="page">
-<div class="card">
-<h1>Contact Us</h1>
-<p><strong>Phone:</strong> 9172660105</p>
-<form onsubmit="return sendMessage()">
-<input type="text" placeholder="Your Name" required>
-<input type="email" placeholder="Your Email" required>
-<textarea rows="4" placeholder="Your Message" required></textarea>
-<button type="submit">Send Message</button>
-</form>
+<!-- CONTACT PAGE -->
+<div id="contact" class="page">
+    <h1>Contact Us</h1>
+    <p>If you want to collaborate with brands or have any questions, contact us below.</p>
+
+    <h3>Email:</h3>
+    <p>surajv707@gmail.com</p>
+
+    <h3>Send Message</h3>
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea placeholder="Your Message"></textarea>
+    <button>Send Message</button>
 </div>
-</section>
 
-<footer>
-© 2026 Brand Collab | All Rights Reserved
-</footer>
+<!-- LOGIN PAGE -->
+<div id="login" class="page">
+    <h1>Login</h1>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+</div>
+
+<!-- REGISTER PAGE -->
+<div id="register" class="page">
+    <h1>Register</h1>
+    <input type="text" placeholder="Full Name">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button onclick="showPage('login')">Register</button>
+</div>
 
 <script>
-function showPage(pageId) {
-    let pages = document.querySelectorAll(".page");
-    pages.forEach(page => page.classList.remove("active"));
+function toggleMenu(){
+    document.getElementById("sidebar").classList.toggle("show");
+}
+
+function showPage(pageId){
+    let pages=document.querySelectorAll(".page");
+    pages.forEach(page=>page.classList.remove("active"));
     document.getElementById(pageId).classList.add("active");
-    window.scrollTo(0,0);
+    document.getElementById("sidebar").classList.remove("show");
 }
 
-function loginUser() {
+function login(){
+    document.getElementById("authButtons").style.display="none";
+    document.getElementById("afterLogin").style.display="block";
+    showPage("home");
     alert("Login Successful!");
-    return false;
-}
-
-function registerUser() {
-    alert("Registration Successful!");
-    return false;
-}
-
-function sendMessage() {
-    alert("Message Sent Successfully!");
-    return false;
 }
 </script>
 
 </body>
 </html>
-
-            
